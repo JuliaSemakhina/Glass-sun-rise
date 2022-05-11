@@ -1,0 +1,99 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+  background: #e6ebf0;
+  transition:  background 1s;
+  toggle-root:  lightswitch;
+}
+
+main {
+  display: grid;
+   place-content:  center;
+
+}
+
+.sun {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.sun:before,
+.sun:after {
+  content:  "";
+  position: absolute;
+}
+
+.sun:before {
+  height: 120px;
+  width: 120px;
+  top: 50%;
+  left: 50%;
+  background-image:  radial-gradient(circle, #f3b2a3, transparent 72%), radial-gradient(circle, #fc8871, transparent 72%);
+  background-repeat: no-repeat;
+  background-size:  80px 80px, 140px 140px;
+  background-position: -20px -30px, -40px -50px;
+  background-color: #fd7051;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sun:after {
+  height: 100px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(12px);
+  box-shadow:  inset 0 0 24px #ffffff, 16px 16px 4px #dadfe5;
+  border-radius:  10% 10% 100% 100% /  10% 10% 200% 200% ;
+}
+
+/*after on top of the circle*/
+
+/*    height: 100px;
+    width: 100%;
+    bottom: 106px;
+    left: 0;
+    backdrop-filter: blur(12px);
+    box-shadow: 22px 0 29px #dadfe5;
+    border-radius: 50% / 100% 100% 0 0;*/
+
+    /*Toggle Button*/
+
+
+    h1 {
+      font-size:  5rem;
+      color:  lightblue;
+    }
+
+    button {
+       font-size: 2rem;
+    padding: .5em;
+    toggle-trigger: lightswitch;
+    }
+
+    button::after {
+      content:  ' light';
+    }
+
+
+/*not working*/
+    html:toggle(lightswitch){
+      background: #ccc;
+    }
+
+    html:toggle(lightswitch) button::after {
+      content:  'dark';
+    }
+
+    html:toggle(lightswitch) h1 {
+      color:  #fd7051;
+    }
